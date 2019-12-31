@@ -3,7 +3,7 @@ description: Static website builder
 version: 0.0.1
 author: nfdz
 environment:
-  sdk: ">=2.5.0 <3.0.0"
+  sdk: ">=2.6.0 <3.0.0"
 
 dependencies:
   meta: ^1.1.8

@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:meta/meta.dart';
 import 'package:web_builder/common/constans.dart';
+import 'common/file_extensions.dart';
 
 import 'foundation/web/web_site.dart';
 
@@ -26,14 +27,16 @@ class WebBuilder {
   }
 
   void _copyAssetsToOutput() {
-    final inputDir = Directory(assetsInputPath)
-        .listSync(recursive: true, followLinks: false);
+    final inputDir = Directory(assetsInputPath);
+    final inputDirFiles = inputDir?.existsSync() == true
+        ? inputDir.listSync(recursive: true, followLinks: false)
+        : null;
     final assetsOutputFullPath = outputPath + assetsOutputPath;
     Directory(assetsOutputFullPath).createSync(recursive: true);
-    inputDir?.forEach((entity) {
+    inputDirFiles?.forEach((entity) {
       File assetFile = File(entity.path);
       if (assetFile.existsSync()) {
-        assetFile.copySync(assetsOutputFullPath);
+        assetFile.copySync(assetsOutputFullPath + assetFile.name);
       }
     });
   }
