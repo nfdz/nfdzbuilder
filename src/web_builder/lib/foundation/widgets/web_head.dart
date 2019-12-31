@@ -11,7 +11,8 @@ class WebHead extends WebWidget {
 
   WebHead copyWith({List<WebWidget> children}) {
     return WebHead(
-      children: children != null ? children : List<String>.from(this.children),
+      children:
+          children != null ? children : List<WebWidget>.from(this.children),
     );
   }
 }

@@ -18,20 +18,18 @@ class WebPage {
   String build(WebContext context) {
     String pageOutput = '<!DOCTYPE html>\n';
     pageOutput += '<html lang="${context.localeCode}">\n';
-    pageOutput += kBuilderComment;
     final copyHead = head.copyWith();
-    _injectScripts(context, copyHead);
     _injectStyles(context, copyHead);
+    _injectScripts(context, copyHead);
     pageOutput += copyHead.build();
     pageOutput += body.build();
+    pageOutput += kBuilderComment;
     pageOutput += '\n</html>';
     return pageOutput;
   }
 
   void _injectStyles(WebContext context, WebHead head) {
-    context?.stylesPaths?.reversed?.forEach((stylePath) => head.children.insert(
-        0,
-        HrefLink(
+    context?.stylesPaths?.forEach((stylePath) => head.children.add(HrefLink(
           href: stylePath.getRelativePath(distanceFromRoot),
           rel: HrefLink.REL_STYLESHEET,
           type: HrefLink.TYPE_CSS,
@@ -39,11 +37,8 @@ class WebPage {
   }
 
   void _injectScripts(WebContext context, WebHead head) {
-    context?.scriptsPaths?.reversed
-        ?.forEach((scriptPath) => head.children.insert(
-            0,
-            SrcScript(
-              scriptSrc: scriptPath.getRelativePath(distanceFromRoot),
-            )));
+    context?.scriptsPaths?.forEach((scriptPath) => head.children.add(SrcScript(
+          scriptSrc: scriptPath.getRelativePath(distanceFromRoot),
+        )));
   }
 }

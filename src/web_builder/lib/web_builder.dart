@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:meta/meta.dart';
@@ -49,7 +50,11 @@ class WebBuilder {
   }
 
   void _createOutputFiles(Map<String, String> outputMap) {
-    outputMap?.forEach((filePath, fileContent) =>
-        File(outputPath + filePath).writeAsStringSync(fileContent));
+    outputMap?.forEach((filePath, fileContent) {
+      final outputFile = File(outputPath + filePath);
+      outputFile.createSync(recursive: true);
+      outputFile.writeAsStringSync(fileContent,
+          encoding: Encoding.getByName("UTF-8"));
+    });
   }
 }

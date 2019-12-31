@@ -25,9 +25,9 @@ void main() {
         CookieConsentCss.build(),
       ],
       scripts: [
+        JqueryJs.build(),
         CookieConsentJs.build(),
         CookieConsentLauncherJs.build(),
-        JqueryJs.build(),
         BootstrapJs.build(),
         CleanblogJs.build(),
       ],

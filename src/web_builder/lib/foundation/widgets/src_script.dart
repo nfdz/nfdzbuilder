@@ -10,5 +10,5 @@ class SrcScript extends WebWidget {
           after: '</script>',
         );
 
-  static String _getAsyncTag(bool isAsync) => isAsync ? "async " : " ";
+  static String _getAsyncTag(bool isAsync) => isAsync ? "async " : "";
 }

@@ -47,15 +47,15 @@ class WebSite {
 
   Map<String, String> _buildScripts() {
     final Map<String, String> scriptsMap = LinkedHashMap<String, String>();
-    scripts?.forEach((script) =>
-        scriptsMap['$scriptsPath${script.name}.js'] = script.script);
+    scripts?.forEach(
+        (script) => scriptsMap['$scriptsPath${script.name}'] = script.script);
     return scriptsMap;
   }
 
   Map<String, String> _buildStyles() {
     final Map<String, String> stylesMap = LinkedHashMap<String, String>();
     styles?.forEach((style) =>
-        stylesMap['$stylesPath${style.name}.css'] = style.getStylesheet(theme));
+        stylesMap['$stylesPath${style.name}'] = style.getStylesheet(theme));
     return stylesMap;
   }
 }
