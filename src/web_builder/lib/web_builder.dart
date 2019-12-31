@@ -29,6 +29,7 @@ class WebBuilder {
     final inputDir = Directory(assetsInputPath)
         .listSync(recursive: true, followLinks: false);
     final assetsOutputFullPath = outputPath + assetsOutputPath;
+    Directory(assetsOutputFullPath).createSync(recursive: true);
     inputDir?.forEach((entity) {
       File assetFile = File(entity.path);
       if (assetFile.existsSync()) {
@@ -37,7 +38,12 @@ class WebBuilder {
     });
   }
 
-  void _clearOutputFolder() => Directory(outputPath).deleteSync();
+  void _clearOutputFolder() {
+    final outputDir = Directory(outputPath);
+    if (outputDir.existsSync()) {
+      outputDir.deleteSync(recursive: true);
+    }
+  }
 
   void _createOutputFiles(Map<String, String> outputMap) {
     outputMap?.forEach((filePath, fileContent) =>
