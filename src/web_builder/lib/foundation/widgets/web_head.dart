@@ -1,4 +1,5 @@
 import 'package:web_builder/foundation/widgets/web_widget.dart';
+import 'package:web_builder/foundation/widgets/widgets.dart';
 
 class WebHead extends WebWidget {
   WebHead({List<WebWidget> children})
@@ -7,4 +8,10 @@ class WebHead extends WebWidget {
           after: '</head>',
           children: children,
         );
+
+  WebHead copyWith({List<WebWidget> children}) {
+    return WebHead(
+      children: children != null ? children : List<String>.from(this.children),
+    );
+  }
 }

@@ -4,6 +4,7 @@ import 'package:web_builder/foundation/widgets/web_widget.dart';
 class HrefLink extends WebWidget {
   static const String REL_STYLESHEET = "stylesheet";
   static const String REL_ICON = "icon";
+  static const String TYPE_CSS = "text/css";
 
   HrefLink({
     @required String href,

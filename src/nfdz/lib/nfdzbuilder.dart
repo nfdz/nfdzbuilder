@@ -1,14 +1,36 @@
+import 'package:nfdz_website/pages/index_web_page.dart';
+import 'package:nfdz_website/scripts/scripts.dart';
 import 'package:web_builder/foundation/web/web.dart';
 import 'package:web_builder/foundation/web/web_theme.dart';
 import 'package:web_builder/web_builder.dart';
+
+import 'styles/styles.dart';
 
 void main() {
   print('NFDZ BUILDER START');
 
   WebBuilder(
     website: WebSite(
-      theme: WebTheme.light(),
-      routes: {},
+      theme: WebTheme.light().copyWith(accentColorHex: "#1E90FF"),
+      routes: {
+        "index.html": IndexWebPage(),
+      },
+      styles: [
+        BootstrapCss.build(),
+        CleanblogCss.build(),
+        CustomCss.build(),
+        FontAwesomeCss.build(),
+        NunitoCss.build(),
+        RobotoCss.build(),
+        CookieConsentCss.build(),
+      ],
+      scripts: [
+        CookieConsentJs.build(),
+        CookieConsentLauncherJs.build(),
+        JqueryJs.build(),
+        BootstrapJs.build(),
+        CleanblogJs.build(),
+      ],
     ),
     assetsInputPath: 'assets/',
     assetsOutputPath: 'assets/',

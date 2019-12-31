@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:meta/meta.dart';
 import 'package:web_builder/common/constans.dart';
 import 'package:web_builder/foundation/web/web_context.dart';
@@ -27,7 +29,7 @@ class WebSite {
         assert(theme != null);
 
   Map<String, String> build() {
-    final Map<String, String> websiteMap = {};
+    final Map<String, String> websiteMap = LinkedHashMap<String, String>();
     final Map<String, String> scriptsMap = _buildScripts();
     final Map<String, String> stylesMap = _buildStyles();
     websiteMap.addAll(scriptsMap);
@@ -44,14 +46,14 @@ class WebSite {
   }
 
   Map<String, String> _buildScripts() {
-    final Map<String, String> scriptsMap = {};
+    final Map<String, String> scriptsMap = LinkedHashMap<String, String>();
     scripts?.forEach((script) =>
         scriptsMap['$scriptsPath${script.name}.js'] = script.script);
     return scriptsMap;
   }
 
   Map<String, String> _buildStyles() {
-    final Map<String, String> stylesMap = {};
+    final Map<String, String> stylesMap = LinkedHashMap<String, String>();
     styles?.forEach((style) =>
         stylesMap['$stylesPath${style.name}.css'] = style.getStylesheet(theme));
     return stylesMap;

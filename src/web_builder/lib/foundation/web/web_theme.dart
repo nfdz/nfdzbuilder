@@ -9,4 +9,11 @@ class WebTheme {
   factory WebTheme.light() {
     return kDefaultLightTheme;
   }
+
+  WebTheme copyWith({String accentColorHex}) {
+    return WebTheme(
+      accentColorHex:
+          accentColorHex != null ? accentColorHex : this.accentColorHex,
+    );
+  }
 }
