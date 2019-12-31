@@ -6,6 +6,9 @@ void main() {
 
   WebBuilder(
     website: WebSite(),
+    assetsInputPath: 'assets',
+    assetsOutputPath: 'assets',
+    outputPath: 'output',
   );
 
   print('NFDZ BUILDER END');
