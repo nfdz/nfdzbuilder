@@ -1,6 +1,7 @@
 # See https://www.dartlang.org/guides/libraries/private-files
 
 # Generated output
+output/
 src/nfdz/output/
 
 # Files and directories created by pub
