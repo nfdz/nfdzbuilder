@@ -1,5 +1,4 @@
 import 'package:meta/meta.dart';
-import 'package:web_builder/common/constans.dart';
 import 'package:web_builder/foundation/web/web_theme.dart';
 
 class WebCss {
@@ -13,8 +12,6 @@ class WebCss {
         this._stylesheet = stylesheet;
 
   String getStylesheet(WebTheme theme) {
-    String stylesheetBld = _stylesheet.replaceAll(
-        kAccentColorHexPlaceholder, theme.accentColorHex);
-    return stylesheetBld;
+    return theme.injectTheme(_stylesheet);
   }
 }

@@ -21,8 +21,8 @@ class WebPage {
     final copyHead = head.copyWith();
     _injectStyles(context, copyHead);
     _injectScripts(context, copyHead);
-    pageOutput += copyHead.build();
-    pageOutput += body.build();
+    pageOutput += copyHead.build(context);
+    pageOutput += body.build(context);
     pageOutput += kBuilderComment;
     pageOutput += '\n</html>';
     return pageOutput;

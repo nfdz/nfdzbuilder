@@ -12,8 +12,12 @@ class WebTheme {
 
   WebTheme copyWith({String accentColorHex}) {
     return WebTheme(
-      accentColorHex:
-          accentColorHex != null ? accentColorHex : this.accentColorHex,
+      accentColorHex: accentColorHex != null ? accentColorHex : this.accentColorHex,
     );
+  }
+
+  String injectTheme(String input) {
+    String outputBld = input.replaceAll(kAccentColorHexPlaceholder, accentColorHex);
+    return outputBld;
   }
 }

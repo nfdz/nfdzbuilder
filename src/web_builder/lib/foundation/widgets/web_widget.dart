@@ -1,4 +1,5 @@
 import 'package:meta/meta.dart';
+import 'package:web_builder/foundation/web/web.dart';
 
 class WebWidget {
   final String before;
@@ -13,11 +14,11 @@ class WebWidget {
     this.children = const [],
   });
 
-  String build() {
+  String build(WebContext context) {
     String output = before;
     output += content;
-    children?.forEach((child) => output += child.build());
+    children?.forEach((child) => output += child.build(context));
     output += after;
-    return output;
+    return context.theme.injectTheme(output);
   }
 }
