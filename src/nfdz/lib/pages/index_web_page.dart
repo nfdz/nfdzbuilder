@@ -36,6 +36,28 @@ class IndexWebPage extends WebPage {
               NavigationBar(selectedOption: NavigationBarOption.home),
               ContactModal(),
               PageHeader(),
+              ContentIndex(),
+              WebWidget(
+                before: '<div class="container">',
+                after: '</div>',
+                children: [
+                  SectionSeparator("who-am-I"),
+                  RowCenter([
+                    ColumnCenter([
+                      SrcImage(
+                        src: "assets/stormtrooper-grayscale.png",
+                        alt: "Me at work",
+                        width: "70%",
+                      ),
+                      WebWidget(
+                        before: '<span class="caption text-muted">',
+                        after: '</span>',
+                        content: 'Me any day at work',
+                      ),
+                    ]),
+                  ]),
+                ],
+              ),
               Footer(),
               HeaderTerminalScript.build(),
               TimelineScript.build(),
@@ -60,5 +82,46 @@ class PageHeader extends WebWidget {
       </div>
     </div>
           """,
+        );
+}
+
+class ContentIndex extends WebWidget {
+  ContentIndex()
+      : super(
+          before: '<ul class="menu-headers">',
+          after: '</ul>',
+          content: """
+    <li><a href="#who-am-I"> Who am I? </a></li>
+    <li><a href="#professional-objectives"> Professional Objectives </a></li>
+    <li><a href="#education"> Education </a></li>
+    <li><a href="#professional-skills"> Professional Skills </a></li>
+    <li><a href="#work-experience"> Work Experience </a></li>
+          """,
+        );
+}
+
+class SectionSeparator extends WebWidget {
+  SectionSeparator(String id)
+      : super(
+          before: '<hr id="$id" class="section-separator">',
+          after: '',
+        );
+}
+
+class RowCenter extends WebWidget {
+  RowCenter(List<WebWidget> children)
+      : super(
+          before: '<div class="row row-centered">',
+          after: '</div>',
+          children: children,
+        );
+}
+
+class ColumnCenter extends WebWidget {
+  ColumnCenter(List<WebWidget> children)
+      : super(
+          before: '<div class="col-xs-6 col-centered col-min col-section">',
+          after: '</div>',
+          children: children,
         );
 }

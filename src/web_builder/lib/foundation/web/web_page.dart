@@ -23,7 +23,6 @@ class WebPage {
     _injectScripts(context, copyHead);
     pageOutput += copyHead.build(context);
     pageOutput += body.build(context);
-    pageOutput += kBuilderComment;
     pageOutput += '\n</html>';
     return pageOutput;
   }

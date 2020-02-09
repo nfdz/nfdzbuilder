@@ -19,6 +19,7 @@ class HeadersBuilder {
         HeadMeta.content(kMetaAuthor, kAuthor),
         HeadMeta.content(kMetaRobots, robots),
         HeadTitle(title: title),
+        WebWidget(before: kBuilderComment, after: ''),
         GoogleAnalyticsScript.buildTagManagerScript(),
         GoogleAnalyticsScript.buildTagConfigScript(),
       ];

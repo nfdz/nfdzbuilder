@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:nfdz_website/pages/index_web_page.dart';
 import 'package:nfdz_website/scripts/scripts.dart';
 import 'package:web_builder/foundation/web/web.dart';
@@ -38,4 +40,5 @@ void main() {
   ).build();
 
   print('NFDZ BUILDER END');
+  print(Directory('./output/index.html').absolute);
 }
