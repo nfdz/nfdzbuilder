@@ -18,7 +18,7 @@ class CookieConsentLauncherJs {
         "theme": "classic",
         "position": "bottom-right",
         "content": {
-          "message": "This website uses cookies just to track visits (analytics stuff for me)."
+          "message": "This website uses cookies just to count visits (Google Analytics)."
         }
       })
     });
