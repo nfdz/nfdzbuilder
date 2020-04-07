@@ -30,3 +30,6 @@ test/.test_coverage.dart
 
 # VSCode
 .vscode/
+
+# OSX
+.DS_Store

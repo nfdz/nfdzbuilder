@@ -6847,7 +6847,6 @@ button.close {
   display:none!important
  }
 }
-/*# sourceMappingURL=bootstrap.min.css.map */
 
 
 

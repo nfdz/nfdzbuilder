@@ -29,15 +29,28 @@ class WebBuilder {
 
   void _copyAssetsToOutput() {
     final inputDir = Directory(assetsInputPath);
-    final inputDirFiles = inputDir?.existsSync() == true
-        ? inputDir.listSync(recursive: true, followLinks: false)
-        : null;
     final assetsOutputFullPath = outputPath + assetsOutputPath;
     Directory(assetsOutputFullPath).createSync(recursive: true);
-    inputDirFiles?.forEach((entity) {
-      File assetFile = File(entity.path);
-      if (assetFile.existsSync()) {
-        assetFile.copySync(assetsOutputFullPath + assetFile.name);
+    _copyAllFilesInDirectory(inputDir, assetsOutputFullPath);
+  }
+
+  void _copyAllFilesInDirectory(Directory directory, String destinationPath) {
+    final dirFiles = directory?.existsSync() == true
+        ? directory.listSync(recursive: false, followLinks: false)
+        : null;
+    dirFiles?.forEach((entity) {
+      final childDirectory = Directory(entity.path);
+      final isDirectory = childDirectory?.existsSync() == true;
+      if (isDirectory) {
+        String recursiveDestinationPath =
+            destinationPath + childDirectory.name + Platform.pathSeparator;
+        Directory(recursiveDestinationPath).createSync(recursive: true);
+        _copyAllFilesInDirectory(childDirectory, recursiveDestinationPath);
+      } else {
+        File assetFile = File(entity.path);
+        if (assetFile.existsSync()) {
+          assetFile.copySync(destinationPath + assetFile.name);
+        }
       }
     });
   }
