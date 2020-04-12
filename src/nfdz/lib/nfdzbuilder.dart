@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:nfdz_website/pages/index_web_page.dart';
+import 'package:nfdz_website/pages/home/home_page.dart';
 import 'package:nfdz_website/scripts/scripts.dart';
 import 'package:web_builder/foundation/web/web.dart';
 import 'package:web_builder/foundation/web/web_theme.dart';
@@ -15,7 +15,7 @@ void main() {
     website: WebSite(
       theme: WebTheme.light().copyWith(accentColorHex: "#1E90FF"),
       routes: {
-        "index.html": IndexWebPage(),
+        "index.html": HomeWebPage(),
       },
       styles: [
         BootstrapCss.build(),
