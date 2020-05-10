@@ -178,8 +178,8 @@ class CustomCss {
   border: inherit;
 }
 .timeline-entry-separator {
-  height: 30px;
-  width: 51%;
+  height: 15px;
+  width: 50.5%;
   border-right: 2px solid black;
 }
 
