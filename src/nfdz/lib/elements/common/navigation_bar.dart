@@ -1,14 +1,17 @@
-import 'package:web_builder/foundation/widgets/widgets.dart';
+import 'package:meta/meta.dart';
+import 'package:nfdz_website/routes/routes.dart';
 import 'package:web_builder/common/string_extensions.dart';
+import 'package:web_builder/foundation/widgets/widgets.dart';
 
 enum NavigationBarOption { home, projects, blog, terminal, modal }
 
 class NavigationBar extends WebWidget {
   NavigationBar({
-    int distanceFromRoot = 0,
-    NavigationBarOption selectedOption = null,
+    @required int distanceFromRoot,
+    @required NavigationBarOption selectedOption,
   }) : super(
-          before: '<nav class="navbar navbar-default navbar-custom navbar-fixed-top">',
+          before:
+              '<nav class="navbar navbar-default navbar-custom navbar-fixed-top">',
           after: '</nav>',
           content: """
           <div class="container-fluid">
@@ -28,13 +31,13 @@ class NavigationBar extends WebWidget {
             distanceFromRoot,
             selectedOption == NavigationBarOption.home,
             'Home',
-            'index.html',
+            kHomeRoute,
           )}
       ${_getOption(
             distanceFromRoot,
             selectedOption == NavigationBarOption.projects,
             'Projects',
-            'projects/index.html',
+            kProjectsRoute,
           )}
       ${_getOption(
             distanceFromRoot,

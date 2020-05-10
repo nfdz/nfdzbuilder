@@ -1,5 +1,7 @@
+import 'package:nfdz_website/common/assets.dart';
 import 'package:nfdz_website/elements/elements.dart';
 import 'package:nfdz_website/pages/home/home_texts.dart';
+import 'package:nfdz_website/routes/routes.dart';
 import 'package:web_builder/common/constans.dart';
 import 'package:web_builder/foundation/web/web_page.dart';
 import 'package:web_builder/foundation/widgets/widgets.dart';
@@ -7,6 +9,7 @@ import 'package:web_builder/foundation/widgets/widgets.dart';
 class HomeWebPage extends WebPage {
   HomeWebPage()
       : super(
+          distanceFromRoot: kHomeDistanceFromRoot,
           head: WebHead(children: [
             ...HeadersBuilder.buildHeaders(
               description: kHomePageDescription,
@@ -18,10 +21,17 @@ class HomeWebPage extends WebPage {
           body: WebBody(
             children: [
               ScrollToTopButton(),
-              OpenTerminalButton(),
-              NavigationBar(selectedOption: NavigationBarOption.home),
+              OpenTerminalButton(kHomeDistanceFromRoot),
+              NavigationBar(
+                distanceFromRoot: kHomeDistanceFromRoot,
+                selectedOption: NavigationBarOption.home,
+              ),
               ContactModal(),
-              PageHeader(),
+              PageHeader(
+                backgroundImage: Assets.homeBg.getPath(kHomeDistanceFromRoot),
+                content:
+                    '<h3 class="unselectable" id="terminal-text"><span style="color:$kAccentColorHexPlaceholder">|</span></h3>',
+              ),
               ContentIndex(),
               WebWidget(
                 before: '<div class="container">',
@@ -31,7 +41,8 @@ class HomeWebPage extends WebPage {
                   RowCenter([
                     ColumnCenter([
                       SrcImage(
-                        src: "assets/stormtrooper-grayscale.png",
+                        src: Assets.stormtrooperImg
+                            .getPath(kHomeDistanceFromRoot),
                         alt: "Me at work",
                         width: "70%",
                       ),
@@ -54,7 +65,7 @@ class HomeWebPage extends WebPage {
                     ]),
                     ColumnCenter([
                       SrcImage(
-                        src: "assets/professional-objectives.jpg",
+                        src: Assets.objetivesImg.getPath(kHomeDistanceFromRoot),
                         alt: "Professionals Objectives",
                         width: "70%",
                       ),
@@ -120,7 +131,8 @@ class HomeWebPage extends WebPage {
                     ]),
                     ColumnCenter([
                       SrcImage(
-                        src: "assets/professional-skills.jpeg",
+                        src: Assets.professionalImg
+                            .getPath(kHomeDistanceFromRoot),
                         alt: "Professional skills",
                         width: "70%",
                       ),
@@ -129,7 +141,7 @@ class HomeWebPage extends WebPage {
                     Text(''),
                     RowCenter([
                       SrcImage(
-                        src: "assets/tags.png",
+                        src: Assets.skillTagsImg.getPath(kHomeDistanceFromRoot),
                         alt:
                             "Kotlin, Java, Dart, Python, Flutter, Android, Firebase, IoT, Cloud",
                         width: "70%",
@@ -184,26 +196,6 @@ class HomeWebPage extends WebPage {
               TimelineScript.build(),
             ],
           ),
-        );
-}
-
-class PageHeader extends WebWidget {
-  PageHeader()
-      : super(
-          before:
-              '<header class="intro-header" style="background-image: url(\'assets/home-bg.jpg\')">',
-          after: '</header>',
-          content: """
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-          <div class="site-heading">
-            <h3 class="unselectable" id="terminal-text"><span style="color:$kAccentColorHexPlaceholder">|</span></h3>
-          </div>
-        </div>
-      </div>
-    </div>
-          """,
         );
 }
 
