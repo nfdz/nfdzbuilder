@@ -6,4 +6,5 @@ export 'package:nfdz_website/elements/common/left_text.dart';
 export 'package:nfdz_website/elements/common/navigation_bar.dart';
 export 'package:nfdz_website/elements/common/open_terminal_button.dart';
 export 'package:nfdz_website/elements/common/scroll_to_top_button.dart';
+export 'package:nfdz_website/elements/common/social_networks.dart';
 export 'package:nfdz_website/elements/common/timeline.dart';
