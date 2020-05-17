@@ -12,7 +12,7 @@ class CookieConsentLauncherJs {
             "background": "#13191C"
           },
           "button": {
-            "background": "#1E90FF"
+            "background": "{{ACCENT_COLOR}}"
           }
         },
         "theme": "classic",

@@ -29,7 +29,7 @@ class CustomCss {
   z-index: 99;
   border: none;
   outline: none;
-  background-color: #1E90FF; /* <- This is the accent color */
+  background-color: {{ACCENT_COLOR}};
   color: white;
   cursor: pointer;
   padding: 10px;
@@ -48,7 +48,7 @@ class CustomCss {
   z-index: 99;
   border: none;
   outline: none;
-  background-color: #1E90FF; /* <- This is the accent color */
+  background-color: {{ACCENT_COLOR}};
   color: white;
   cursor: pointer;
   padding: 10px;
@@ -137,7 +137,7 @@ class CustomCss {
 }
 .menu-headers li a:hover {
   text-decoration: inherit;
-  color: #1E90FF; /* <- This is the accent color */
+  color: {{ACCENT_COLOR}};
 }
 
 /* Timeline styles */
@@ -258,16 +258,16 @@ class CustomCss {
 }
 
 /* Projects styles */
-.projects-filter {
+.filterable-content-filter {
   text-align: center;
   padding: 0;
   margin: 0;
   margin-bottom: 50px;
 }
-.projects-filter li {
+.filterable-content-filter li {
   display: inline-block;
 }
-.projects-filter li a {
+.filterable-content-filter li a {
   font-size: 15px;
   outline: 0;
   background-color: black;
@@ -280,17 +280,17 @@ class CustomCss {
   color: white;
   text-decoration: inherit;
 }
-.projects-filter li a:hover {
+.filterable-content-filter li a:hover {
   text-decoration: inherit;
-  background-color: #1E90FF; /* <- This is the accent color */
+  background-color: {{ACCENT_COLOR}};
 }
 .filter-active {
-  background-color: #1E90FF !important; /* <- This is the accent color */
+  background-color: {{ACCENT_COLOR}} !important;
 }
-.projects-grid {
+.filterable-content-grid {
   text-align: center;
 }
-.project-grid-item {
+.filterable-content-grid-item {
   text-align: center;
   margin-left: 10%;
   margin-right: 10%;
@@ -299,11 +299,11 @@ class CustomCss {
 }
 /* .project-grid-item img {
 } */
-.project-grid-item img:hover {
+.filterable-content-grid-item img:hover {
   cursor: inherit;
 }
 /* @media only screen and (min-width: 768px) {
-  .project-grid-item h4 {
+  .filterable-content-grid-item h4 {
   }
 } */
     """,

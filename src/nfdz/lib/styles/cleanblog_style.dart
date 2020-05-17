@@ -37,7 +37,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: #1E90FF; /* <- This is the accent color */
+  color: {{ACCENT_COLOR}};
 }
 a img:hover,
 a img:focus {
@@ -129,7 +129,7 @@ hr.small {
 .navbar-custom .nav li a:hover,
 .navbar-custom .nav li a:focus {
   background-color: rgba(227, 227, 227, 0.9);
-  color: #1E90FF;
+  color: {{ACCENT_COLOR}};
 }
 @media only screen and (min-width: 768px) {
   .navbar-custom {
@@ -165,11 +165,11 @@ hr.small {
   }
   .navbar-custom.is-fixed .navbar-brand:hover,
   .navbar-custom.is-fixed .navbar-brand:focus {
-    color: #1E90FF;
+    color: {{ACCENT_COLOR}};
   }
   .navbar-custom.is-fixed .nav li a:hover,
   .navbar-custom.is-fixed .nav li a:focus {
-    color: #1E90FF;
+    color: {{ACCENT_COLOR}};
   }
 
   .navbar-custom.is-fixed .nav li a {
@@ -260,7 +260,7 @@ hr.small {
 .post-preview > a:hover,
 .post-preview > a:focus {
   text-decoration: none;
-  color: #1E90FF;
+  color: {{ACCENT_COLOR}};
 }
 .post-preview > a > .post-title {
   font-size: 30px;
@@ -284,7 +284,7 @@ hr.small {
 }
 .post-preview > .post-meta > a:hover,
 .post-preview > .post-meta > a:focus {
-  color: #1E90FF;
+  color: {{ACCENT_COLOR}};
   text-decoration: underline;
 }
 @media only screen and (min-width: 768px) {
@@ -364,7 +364,7 @@ footer .copyright {
   opacity: 1;
 }
 .floating-label-form-group-with-focus label {
-  color: #1E90FF;
+  color: {{ACCENT_COLOR}};
 }
 form .row:first-child .floating-label-form-group {
   border-top: 1px solid #eeeeee;
@@ -384,8 +384,8 @@ form .row:first-child .floating-label-form-group {
 }
 .btn-default:hover,
 .btn-default:focus {
-  background-color: #1E90FF;
-  border: 1px solid #1E90FF;
+  background-color: {{ACCENT_COLOR}};
+  border: 1px solid {{ACCENT_COLOR}};
   color: white;
 }
 .pager {
@@ -405,8 +405,8 @@ form .row:first-child .floating-label-form-group {
 .pager li > a:hover,
 .pager li > a:focus {
   color: white;
-  background-color: #1E90FF;
-  border: 1px solid #1E90FF;
+  background-color: {{ACCENT_COLOR}};
+  border: 1px solid {{ACCENT_COLOR}};
 }
 .pager .disabled > a,
 .pager .disabled > a:hover,
@@ -419,12 +419,12 @@ form .row:first-child .floating-label-form-group {
 ::-moz-selection {
   color: white;
   text-shadow: none;
-  background: #1E90FF;
+  background: {{ACCENT_COLOR}};
 }
 ::selection {
   color: white;
   text-shadow: none;
-  background: #1E90FF;
+  background: {{ACCENT_COLOR}};
 }
 img::selection {
   color: white;

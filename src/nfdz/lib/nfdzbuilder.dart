@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:nfdz_website/pages/home/home_page.dart';
 import 'package:nfdz_website/pages/projects/projects_page.dart';
 import 'package:nfdz_website/routes/routes.dart';
+import 'package:nfdz_website/scripts/isotope_scripts.dart';
 import 'package:nfdz_website/scripts/scripts.dart';
 import 'package:web_builder/foundation/web/web.dart';
 import 'package:web_builder/foundation/web/web_theme.dart';
@@ -35,6 +36,7 @@ void main() {
         CookieConsentLauncherJs.build(),
         BootstrapJs.build(),
         CleanblogJs.build(),
+        IsotopeJs.build(),
       ],
     ),
     assetsInputPath: 'assets/',

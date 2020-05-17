@@ -1,11 +1,61 @@
 import 'package:nfdz_website/common/assets.dart';
 import 'package:nfdz_website/elements/elements.dart';
+import 'package:nfdz_website/elements/scripts/filter.dart';
 import 'package:nfdz_website/pages/projects/projects_texts.dart';
 import 'package:nfdz_website/routes/routes.dart';
 import 'package:web_builder/foundation/web/web_page.dart';
 import 'package:web_builder/foundation/widgets/widgets.dart';
 
 class ProjectsWebPage extends WebPage {
+  static const projectFilters = <FilterEntry>[
+    FilterEntry(
+      id: kNullFilterId,
+      contentId: null,
+      label: 'All',
+      isActive: true,
+    ),
+    FilterEntry(
+      id: 'flutter-filter',
+      contentId: 'flutter-content',
+      label: 'Flutter',
+    ),
+    FilterEntry(
+      id: 'android-filter',
+      contentId: 'android-content',
+      label: 'Android',
+    ),
+    FilterEntry(
+      id: 'library-filter',
+      contentId: 'library-content',
+      label: 'Library',
+    ),
+    FilterEntry(
+      id: 'kotlin-filter',
+      contentId: 'kotlin-content',
+      label: 'Kotlin',
+    ),
+    FilterEntry(
+      id: 'java-filter',
+      contentId: 'java-content',
+      label: 'Java',
+    ),
+    FilterEntry(
+      id: 'arduino-filter',
+      contentId: 'arduino-content',
+      label: 'Arduino',
+    ),
+    FilterEntry(
+      id: 'unity-filter',
+      contentId: 'unity-content',
+      label: 'Unity',
+    ),
+    FilterEntry(
+      id: 'security-filter',
+      contentId: 'security-content',
+      label: 'Security',
+    ),
+  ];
+
   ProjectsWebPage()
       : super(
           distanceFromRoot: kProjectsDistanceFromRoot,
@@ -34,39 +84,13 @@ class ProjectsWebPage extends WebPage {
               WebWidget(
                 before: '<div class="container">',
                 after: '</div>',
-                children: [],
+                children: [
+                  FilterArea(projectFilters),
+                  FilterScript.build(),
+                ],
               ),
               Footer(),
-              HeaderTerminalScript.build(),
-              TimelineScript.build(),
             ],
           ),
-        );
-}
-
-class SectionSeparator extends WebWidget {
-  SectionSeparator(String id)
-      : super(
-          before: '<hr id="$id" class="section-separator">',
-          after: '',
-        );
-}
-
-class RowCenter extends WebWidget {
-  RowCenter(List<WebWidget> children)
-      : super(
-          before: '<div class="row row-centered">',
-          after: '</div>',
-          children: children,
-        );
-}
-
-class ColumnCenter extends WebWidget {
-  ColumnCenter(List<WebWidget> children, {int level = 6})
-      : super(
-          before:
-              '<div class="col-xs-$level col-centered col-min col-section">',
-          after: '</div>',
-          children: children,
         );
 }

@@ -17,7 +17,7 @@ jQuery(document).ready(function (\$) {
     // Writing/Erasing Frequency (in millis)
     var frequency = 60;
     // Cursor  html
-    var cursor = '<span style="color:#1E90FF">|</span>'
+    var cursor = '<span style="color:{{ACCENT_COLOR}}">|</span>'
     var hiddenCursor = '&nbsp'
     // Frames (relative to frequency) to perform a blink (show/hide cursor)
     var framesPerBlink = 7;
