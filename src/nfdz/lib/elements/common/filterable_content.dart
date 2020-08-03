@@ -1,28 +1,37 @@
 import 'package:meta/meta.dart';
 import 'package:web_builder/foundation/widgets/widgets.dart';
 
-const kNullFilterId = 'all-filter';
-
-class FilterEntry {
-  final String id;
-  final String label;
-  final bool isActive;
-  const FilterEntry({
-    @required this.id,
-    @required this.label,
-    this.isActive = false,
+class FilterableContent {
+  final String contentLink;
+  final String title;
+  final List<String> contentIds;
+  final String date; // TODO
+  const FilterableContent({
+    @required this.title,
+    @required this.contentLink,
+    this.contentIds,
+    this.date,
   });
 
   WebWidget buildWidget() => WebWidget(
         before:
-            '<li><a href="#" class="$id${isActive ? ' filter-active' : ''}" onclick="${id == kNullFilterId ? 'removeFilter()' : 'filter($id)'};return false;">',
-        after: '</a></li>',
-        content: label,
+            '<a href="$contentLink"><div class="col-xs-12 col-centered filterable-content-grid-item${_serializeIds()}">',
+        after: ' </div></a>',
+        content: '<h4>$title</h4><hr>',
       );
+
+  String _serializeIds() {
+    if (contentIds == null) return '';
+    String output = '';
+    for (String contentId in contentIds) {
+      output += ' $contentId';
+    }
+    return output;
+  }
 }
 
-class FilterArea extends WebWidget {
-  FilterArea(List<FilterEntry> entries)
+class FilterableContentArea extends WebWidget {
+  FilterableContentArea(List<FilterableContent> entries)
       : super(
           before: '<div class="row row-centered filterable-content-grid">',
           after: '</div>',

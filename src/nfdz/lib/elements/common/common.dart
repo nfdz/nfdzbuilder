@@ -1,6 +1,7 @@
 export 'package:nfdz_website/elements/common/caption_text.dart';
 export 'package:nfdz_website/elements/common/contact_modal.dart';
 export 'package:nfdz_website/elements/common/filter_area.dart';
+export 'package:nfdz_website/elements/common/filterable_content.dart';
 export 'package:nfdz_website/elements/common/footer.dart';
 export 'package:nfdz_website/elements/common/left_list.dart';
 export 'package:nfdz_website/elements/common/left_text.dart';

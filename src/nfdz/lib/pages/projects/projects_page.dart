@@ -6,56 +6,9 @@ import 'package:nfdz_website/routes/routes.dart';
 import 'package:web_builder/foundation/web/web_page.dart';
 import 'package:web_builder/foundation/widgets/widgets.dart';
 
-class ProjectsWebPage extends WebPage {
-  static const projectFilters = <FilterEntry>[
-    FilterEntry(
-      id: kNullFilterId,
-      contentId: null,
-      label: 'All',
-      isActive: true,
-    ),
-    FilterEntry(
-      id: 'flutter-filter',
-      contentId: 'flutter-content',
-      label: 'Flutter',
-    ),
-    FilterEntry(
-      id: 'android-filter',
-      contentId: 'android-content',
-      label: 'Android',
-    ),
-    FilterEntry(
-      id: 'library-filter',
-      contentId: 'library-content',
-      label: 'Library',
-    ),
-    FilterEntry(
-      id: 'kotlin-filter',
-      contentId: 'kotlin-content',
-      label: 'Kotlin',
-    ),
-    FilterEntry(
-      id: 'java-filter',
-      contentId: 'java-content',
-      label: 'Java',
-    ),
-    FilterEntry(
-      id: 'arduino-filter',
-      contentId: 'arduino-content',
-      label: 'Arduino',
-    ),
-    FilterEntry(
-      id: 'unity-filter',
-      contentId: 'unity-content',
-      label: 'Unity',
-    ),
-    FilterEntry(
-      id: 'security-filter',
-      contentId: 'security-content',
-      label: 'Security',
-    ),
-  ];
+import 'projects_content.dart';
 
+class ProjectsWebPage extends WebPage {
   ProjectsWebPage()
       : super(
           distanceFromRoot: kProjectsDistanceFromRoot,
@@ -85,7 +38,8 @@ class ProjectsWebPage extends WebPage {
                 before: '<div class="container">',
                 after: '</div>',
                 children: [
-                  FilterArea(projectFilters),
+                  FilterArea(projectsFilters),
+                  FilterableContentArea(projectsContent),
                   FilterScript.build(),
                 ],
               ),

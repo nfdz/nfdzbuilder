@@ -297,15 +297,6 @@ class CustomCss {
   width: 80%;
   display: inherit;
 }
-/* .project-grid-item img {
-} */
-.filterable-content-grid-item img:hover {
-  cursor: inherit;
-}
-/* @media only screen and (min-width: 768px) {
-  .filterable-content-grid-item h4 {
-  }
-} */
     """,
     );
   }

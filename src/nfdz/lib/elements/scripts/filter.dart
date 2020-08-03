@@ -6,20 +6,20 @@ class FilterScript {
     return InlineScript(
       script: """
 function removeFilter() {
-  \$('.filterable-content-grid')?.isotope({ filter: '*' });
-  \$('.filter-active')?.removeClass('filter-active');
-  \$('.$kNullFilterId')?.addClass('filter-active');
+  \$('.filterable-content-grid').isotope({ filter: '*' });
+  \$('.filter-active').removeClass('filter-active');
+  \$('.$kNullFilterId').addClass('filter-active');
 }
 function filterContent(filterId, contentId) {
-  \$('.filterable-content-grid')?.isotope({ filter: '.' + contentId });
-  \$('.filter-active')?.removeClass('filter-active');
-  \$('.' + filterId)?.addClass('filter-active');
+  \$('.filterable-content-grid').isotope({ filter: '.' + contentId });
+  \$('.filter-active').removeClass('filter-active');
+  \$('.' + filterId).addClass('filter-active');
 }
 
 \$(window).on("load", function () {
   \$('.filterable-content-grid').isotope({
     // options
-    itemSelector: '.project-grid-item',
+    itemSelector: '.filterable-content-grid-item',
     layoutMode: 'fitRows'
   });
   removeFilter();
